@@ -9,7 +9,7 @@ import org.apache.spark.sql.SparkSession;
  * 
  * For more details about the JSON Lines format, see: http://jsonlines.org/.
  * 
- * @author jgperrin
+ * @author jgp
  */
 public class JsonLinesToDataframeApp {
 
@@ -29,7 +29,7 @@ public class JsonLinesToDataframeApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("CSV to Dataset")
+        .appName("JSON Lines to Dataset")
         .master("local")
         .getOrCreate();
 
