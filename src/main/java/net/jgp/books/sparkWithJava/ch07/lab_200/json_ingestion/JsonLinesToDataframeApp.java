@@ -5,11 +5,13 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * CSV ingestion in a dataframe.
+ * JSON Lines ingestion in a dataframe.
  * 
- * @author jperrin
+ * For more details about the JSON Lines format, see: http://jsonlines.org/.
+ * 
+ * @author jgperrin
  */
-public class JsonLineToDataframeApp {
+public class JsonLinesToDataframeApp {
 
   /**
    * main() is your entry point to the application.
@@ -17,7 +19,7 @@ public class JsonLineToDataframeApp {
    * @param args
    */
   public static void main(String[] args) {
-    JsonLineToDataframeApp app = new JsonLineToDataframeApp();
+    JsonLinesToDataframeApp app = new JsonLinesToDataframeApp();
     app.start();
   }
 
