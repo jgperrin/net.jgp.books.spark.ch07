@@ -27,7 +27,7 @@ public class JsonLineToDataframeApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("CSV to Dataset")
+        .appName("JSON to Dataset")
         .master("local")
         .getOrCreate();
 
