@@ -1,15 +1,18 @@
-package net.jgp.books.sparkWithJava.ch07.lab_100.csv_ingestion;
+package net.jgp.books.sparkWithJava.ch07.lab_300.xml_ingestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * CSV ingestion in a dataframe.
+ * XML ingestion in a dataframe.
  * 
- * @author jperrin
+ * Source of file:
+ * NASA patents dataset - https://data.nasa.gov/Raw-Data/NASA-Patents/gquh-watm
+ * 
+ * @author jgp
  */
-public class ComplexCsvToDataframeApp {
+public class XmlToDataframeApp {
 
   /**
    * main() is your entry point to the application.
@@ -17,7 +20,7 @@ public class ComplexCsvToDataframeApp {
    * @param args
    */
   public static void main(String[] args) {
-    ComplexCsvToDataframeApp app = new ComplexCsvToDataframeApp();
+    XmlToDataframeApp app = new XmlToDataframeApp();
     app.start();
   }
 
@@ -33,15 +36,11 @@ public class ComplexCsvToDataframeApp {
 
     // Reads a CSV file with header, called books.csv, stores it in a dataframe
     Dataset<Row> df = spark.read().format("xml")
-        .option("header", "true")
-        .option("multiline", true)
-        .option("sep", ";")
-        .option("dateFormat", "m/d/y")
-        .option("inferSchema", true)
-        .load("data/books.csv");
+        .option("rowTag", "row")
+        .load("data/nasa-patents.xml");
 
-    // Shows at most 15 rows from the dataframe
-    df.show(15);
+    // Shows at most 5 rows from the dataframe
+    df.show(5);
     df.printSchema();
   }
 }
