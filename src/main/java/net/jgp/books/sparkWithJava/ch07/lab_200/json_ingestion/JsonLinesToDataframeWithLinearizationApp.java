@@ -4,6 +4,8 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
+import static org.apache.spark.sql.functions.*;
+
 /**
  * JSON Lines ingestion in a dataframe.
  * 
@@ -11,7 +13,7 @@ import org.apache.spark.sql.SparkSession;
  * 
  * @author jgp
  */
-public class JsonLinesToDataframeApp {
+public class JsonLinesToDataframeWithLinearizationApp {
 
   /**
    * main() is your entry point to the application.
@@ -19,8 +21,8 @@ public class JsonLinesToDataframeApp {
    * @param args
    */
   public static void main(String[] args) {
-    JsonLinesToDataframeApp app =
-        new JsonLinesToDataframeApp();
+    JsonLinesToDataframeWithLinearizationApp app =
+        new JsonLinesToDataframeWithLinearizationApp();
     app.start();
   }
 
@@ -38,8 +40,11 @@ public class JsonLinesToDataframeApp {
     Dataset<Row> df = spark.read().format("json")
         .load("data/durham-nc-foreclosure-2006-2016.json");
 
+    df = df.withColumn("year", col("fields.year"));
+    df = df.withColumn("coordinates", col("geometry.coordinates"));
+    
     // Shows at most 5 rows from the dataframe
-    df.show(5, 13);
+    df.show(5);
     df.printSchema();
   }
 }
