@@ -30,7 +30,7 @@ public class XmlToDataframeApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("XML to Dataset")
+        .appName("XML to Dataframe")
         .master("local")
         .getOrCreate();
 

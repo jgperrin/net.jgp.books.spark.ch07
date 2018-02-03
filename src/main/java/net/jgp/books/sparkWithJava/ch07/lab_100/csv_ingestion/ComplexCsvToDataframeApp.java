@@ -27,7 +27,7 @@ public class ComplexCsvToDataframeApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("Complex CSV to Dataset")
+        .appName("Complex CSV to Dataframe")
         .master("local")
         .getOrCreate();
 

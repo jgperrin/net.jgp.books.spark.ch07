@@ -33,7 +33,7 @@ public class ComplexCsvToDataframeWithSchemaApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("Complex CSV with a schema to Dataset")
+        .appName("Complex CSV with a schema to Dataframe")
         .master("local")
         .getOrCreate();
 

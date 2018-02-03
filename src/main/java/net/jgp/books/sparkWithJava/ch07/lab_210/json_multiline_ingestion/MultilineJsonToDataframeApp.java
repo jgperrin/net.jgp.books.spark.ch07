@@ -30,7 +30,7 @@ public class MultilineJsonToDataframeApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("Multiline JSON to Dataset")
+        .appName("Multiline JSON to Dataframe")
         .master("local")
         .getOrCreate();
 

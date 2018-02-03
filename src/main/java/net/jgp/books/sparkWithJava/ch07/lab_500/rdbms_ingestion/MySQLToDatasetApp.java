@@ -15,7 +15,7 @@ public class MySQLToDatasetApp {
 
   private void start() {
     SparkSession spark = SparkSession.builder()
-        .appName("Dataset from MySQL JDBC Connection")
+        .appName("MySQL to Dataframe using a JDBC Connection")
         .master("local")
         .getOrCreate();
 
