@@ -35,7 +35,7 @@ public class XmlToDataframeApp {
         .getOrCreate();
 
     // Reads a CSV file with header, called books.csv, stores it in a dataframe
-    Dataset<Row> df = spark.read().format("XML")
+    Dataset<Row> df = spark.read().format("xml")
         .option("rowTag", "row")
         .load("data/nasa-patents.xml");
 
