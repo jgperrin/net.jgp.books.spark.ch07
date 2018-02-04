@@ -5,9 +5,10 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * JSON Lines ingestion in a dataframe.
+ * Multiline ingestion JSON ingestion in a dataframe.
  * 
- * For more details about the JSON Lines format, see: http://jsonlines.org/.
+ * The data comes from the city of Durham, NC. You can freely download their
+ * datasets from their portal at https://OpenDurham.nc.gov. .
  * 
  * @author jgp
  */
@@ -34,14 +35,14 @@ public class MultilineJsonToDataframeApp {
         .master("local")
         .getOrCreate();
 
-    // Reads a CSV file with header, called books.csv, stores it in a dataframe
+    // Reads a JSON, called countrytravelinfo.json, stores it in a dataframe
     Dataset<Row> df = spark.read()
         .format("json")
         .option("multiline", true)
         .load("data/countrytravelinfo.json");
 
-    // Shows at most 5 rows from the dataframe
-    df.show(5);
+    // Shows at most 3 rows from the dataframe
+    df.show(3);
     df.printSchema();
   }
 }
