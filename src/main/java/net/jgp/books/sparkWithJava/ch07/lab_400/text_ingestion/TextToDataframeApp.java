@@ -39,7 +39,7 @@ public class TextToDataframeApp {
         .load("data/romeo-juliet-pg1777.txt");
 
     // Shows at most 5 rows from the dataframe
-    df.show(5);
+    df.show(10);
     df.printSchema();
   }
 }
