@@ -1,8 +1,10 @@
-package net.jgp.books.sparkWithJava.ch07.lab_210.json_multiline_ingestion;
+package net.jgp.books.sparkWithJava.ch07.lab_200.json_ingestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
+
+import static org.apache.spark.sql.functions.*;
 
 /**
  * JSON Lines ingestion in a dataframe.
@@ -11,7 +13,7 @@ import org.apache.spark.sql.SparkSession;
  * 
  * @author jgp
  */
-public class MultilineJsonToDataframeWithCorrupRecordApp {
+public class JsonLinesToDataframeWithLinearizationApp {
 
   /**
    * main() is your entry point to the application.
@@ -19,8 +21,8 @@ public class MultilineJsonToDataframeWithCorrupRecordApp {
    * @param args
    */
   public static void main(String[] args) {
-    MultilineJsonToDataframeWithCorrupRecordApp app =
-        new MultilineJsonToDataframeWithCorrupRecordApp();
+    JsonLinesToDataframeWithLinearizationApp app =
+        new JsonLinesToDataframeWithLinearizationApp();
     app.start();
   }
 
@@ -30,14 +32,17 @@ public class MultilineJsonToDataframeWithCorrupRecordApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("Multiline JSON to Dataset")
+        .appName("JSON Lines to Dataframe")
         .master("local")
         .getOrCreate();
 
     // Reads a CSV file with header, called books.csv, stores it in a dataframe
     Dataset<Row> df = spark.read().format("json")
-        .load("data/countrytravelinfo.json");
+        .load("data/durham-nc-foreclosure-2006-2016.json");
 
+    df = df.withColumn("year", col("fields.year"));
+    df = df.withColumn("coordinates", col("geometry.coordinates"));
+    
     // Shows at most 5 rows from the dataframe
     df.show(5);
     df.printSchema();

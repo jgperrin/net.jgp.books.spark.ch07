@@ -5,7 +5,7 @@ import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * XML ingestion in a dataframe.
+ * XML ingestion to a dataframe.
  * 
  * Source of file:
  * NASA patents dataset - https://data.nasa.gov/Raw-Data/NASA-Patents/gquh-watm
@@ -25,12 +25,12 @@ public class XmlToDataframeApp {
   }
 
   /**
-   * The processing code.
+   * The processing code.//#C
    */
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("XML to Dataset")
+        .appName("XML to Dataframe")
         .master("local")
         .getOrCreate();
 
