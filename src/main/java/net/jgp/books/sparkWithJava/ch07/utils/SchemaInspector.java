@@ -4,10 +4,17 @@ import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.types.StructType;
 
+/**
+ * Helper class to inspect a dataframe's schema. The printSchema() does not
+ * display all the information.
+ * 
+ * @author jgp
+ *
+ */
 public class SchemaInspector {
 
   public static void print(StructType schema) {
-    print (null, schema);
+    print(null, schema);
   }
 
   public static void print(String label, Dataset<Row> df) {
