@@ -37,7 +37,7 @@ public class ComplexCsvToDataframeApp {
         .option("multiline", true)
         .option("sep", ";")
         .option("quote", "*")
-        .option("dateFormat", "m/d/y")
+        .option("dateFormat", "M/d/y")
         .option("inferSchema", true)
         .load("data/books.csv");
 

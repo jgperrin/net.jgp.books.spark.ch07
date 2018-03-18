@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch07.lab_200.json_ingestion;
+package net.jgp.books.sparkWithJava.ch07.lab_201.json_ingestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -8,6 +8,10 @@ import static org.apache.spark.sql.functions.*;
 
 /**
  * JSON Lines ingestion in a dataframe.
+ * 
+ * Note: This example is an extra, which is not described in chapter 7 of the
+ * book: it illustrates how to access nested structure in the JSON document
+ * directly. Linearization will be covered in chapter 12.
  * 
  * For more details about the JSON Lines format, see: http://jsonlines.org/.
  * 
@@ -41,8 +45,10 @@ public class JsonLinesToDataframeWithLinearizationApp {
         .load("data/durham-nc-foreclosure-2006-2016.json");
 
     df = df.withColumn("year", col("fields.year"));
-    df = df.withColumn("coordinates", col("geometry.coordinates"));
-    
+    df = df.withColumn(
+        "coordinates",
+        col("geometry.coordinates"));
+
     // Shows at most 5 rows from the dataframe
     df.show(5);
     df.printSchema();
