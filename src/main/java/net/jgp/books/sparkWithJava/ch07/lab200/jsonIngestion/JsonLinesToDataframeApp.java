@@ -1,18 +1,17 @@
-package net.jgp.books.sparkWithJava.ch07.lab_400.text_ingestion;
+package net.jgp.books.sparkWithJava.ch07.lab200.jsonIngestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * Text ingestion in a dataframe.
+ * JSON Lines ingestion in a dataframe.
  * 
- * Source of file:
- * Rome & Juliet (Shakespeare) - http://www.gutenberg.org/cache/epub/1777/pg1777.txt
+ * For more details about the JSON Lines format, see: http://jsonlines.org/.
  * 
  * @author jgp
  */
-public class TextToDataframeApp {
+public class JsonLinesToDataframeApp {
 
   /**
    * main() is your entry point to the application.
@@ -20,7 +19,8 @@ public class TextToDataframeApp {
    * @param args
    */
   public static void main(String[] args) {
-    TextToDataframeApp app = new TextToDataframeApp();
+    JsonLinesToDataframeApp app =
+        new JsonLinesToDataframeApp();
     app.start();
   }
 
@@ -30,16 +30,16 @@ public class TextToDataframeApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("Text to Dataframe")
+        .appName("JSON Lines to Dataframe")
         .master("local")
         .getOrCreate();
 
     // Reads a CSV file with header, called books.csv, stores it in a dataframe
-    Dataset<Row> df = spark.read().format("text")
-        .load("data/romeo-juliet-pg1777.txt");
+    Dataset<Row> df = spark.read().format("json")
+        .load("data/durham-nc-foreclosure-2006-2016.json");
 
     // Shows at most 5 rows from the dataframe
-    df.show(10);
+    df.show(5, 13);
     df.printSchema();
   }
 }

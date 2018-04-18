@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch07.lab_210.json_multiline_ingestion;
+package net.jgp.books.sparkWithJava.ch07.lab210.jsonMultilineIngestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -7,13 +7,12 @@ import org.apache.spark.sql.SparkSession;
 /**
  * Multiline ingestion JSON ingestion in a dataframe.
  * 
- * The data comes from The Bureau of Consular Affairs of the US Department of
- * State. You can access their open data portal at
- * https://cadatacatalog.state.gov/.
+ * The data comes from the city of Durham, NC. You can freely download their
+ * datasets from their portal at https://OpenDurham.nc.gov. .
  * 
  * @author jgp
  */
-public class MultilineJsonToDataframeWithCorruptRecordApp {
+public class MultilineJsonToDataframeApp {
 
   /**
    * main() is your entry point to the application.
@@ -21,8 +20,8 @@ public class MultilineJsonToDataframeWithCorruptRecordApp {
    * @param args
    */
   public static void main(String[] args) {
-    MultilineJsonToDataframeWithCorruptRecordApp app =
-        new MultilineJsonToDataframeWithCorruptRecordApp();
+    MultilineJsonToDataframeApp app =
+        new MultilineJsonToDataframeApp();
     app.start();
   }
 
@@ -32,14 +31,14 @@ public class MultilineJsonToDataframeWithCorruptRecordApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName(
-            "Multiline JSON to Dataframe, without multiline option")
+        .appName("Multiline JSON to Dataframe")
         .master("local")
         .getOrCreate();
 
-    // Reads a JSON, called countrytravelinfo.json, stores it in a dataframe,
-    // without specifying the multiline option
-    Dataset<Row> df = spark.read().format("json")
+    // Reads a JSON, called countrytravelinfo.json, stores it in a dataframe
+    Dataset<Row> df = spark.read()
+        .format("json")
+        .option("multiline", true)
         .load("data/countrytravelinfo.json");
 
     // Shows at most 3 rows from the dataframe
