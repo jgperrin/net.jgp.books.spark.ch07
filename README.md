@@ -3,3 +3,7 @@ The examples in this repository are support to the **Spark with Java** book by J
 # Spark with Java - chapter 7
 
 Welcome to Spark with Java, chapter 7. This chapter covers file ingestion from CSV, JSON, XML, and text.
+
+---
+
+Follow me on Twitter to get updates about the book and Apache Spark: [@jgperrin](https://twitter.com/jgperrin).
