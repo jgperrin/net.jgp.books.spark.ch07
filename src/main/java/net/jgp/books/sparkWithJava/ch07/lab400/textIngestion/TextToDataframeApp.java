@@ -34,7 +34,7 @@ public class TextToDataframeApp {
         .master("local")
         .getOrCreate();
 
-    // Reads a CSV file with header, called books.csv, stores it in a dataframe
+    // Reads a Romeo and Juliet (faster than you!), stores it in a dataframe
     Dataset<Row> df = spark.read().format("text")
         .load("data/romeo-juliet-pg1777.txt");
 
