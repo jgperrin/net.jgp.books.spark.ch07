@@ -30,7 +30,7 @@ public class OrcToDataframeApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("Text to Dataframe")
+        .appName("ORC to Dataframe")
         .config("spark.sql.orc.impl", "native")
         .master("local")
         .getOrCreate();
@@ -38,7 +38,6 @@ public class OrcToDataframeApp {
     // Reads an ORC, stores it in a dataframe
     Dataset<Row> df = spark.read()
         .format("orc")
-        .option("spark.sql.orc.impl", "native")
         .load("data/demo-11-zlib.orc");
 
     // Shows at most 10 rows from the dataframe
