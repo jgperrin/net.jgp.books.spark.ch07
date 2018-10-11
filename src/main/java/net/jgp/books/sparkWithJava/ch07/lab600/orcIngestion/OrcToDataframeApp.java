@@ -35,7 +35,7 @@ public class OrcToDataframeApp {
         .master("local")
         .getOrCreate();
 
-    // Reads an ORC, stores it in a dataframe
+    // Reads an ORC file, stores it in a dataframe
     Dataset<Row> df = spark.read()
         .format("orc")
         .load("data/demo-11-zlib.orc");

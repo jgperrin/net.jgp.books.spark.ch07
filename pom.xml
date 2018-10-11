@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -8,13 +9,13 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
     <scala.version>2.11</scala.version>
     <spark.version>2.3.2</spark.version>
     <spark-xml.version>0.4.1</spark-xml.version>
+    <spark-avro.version> 4.0.0</spark-avro.version>
   </properties>
 
   <dependencies>
@@ -47,6 +48,12 @@
           <artifactId>slf4j-simple</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>com.databricks</groupId>
+      <artifactId>spark-avro_${scala.version}</artifactId>
+      <version>${spark-avro.version}</version>
     </dependency>
 
     <dependency>
