@@ -54,7 +54,7 @@ public class ComplexCsvToDataframeWithSchemaApp {
         DataTypes.createStructField(
             "releaseDate",
             DataTypes.DateType,
-            true),
+            true), // nullable, but this will be ignore
         DataTypes.createStructField(
             "url",
             DataTypes.StringType,
