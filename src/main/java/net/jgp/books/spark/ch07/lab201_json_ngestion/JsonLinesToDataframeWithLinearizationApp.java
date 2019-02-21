@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch07.lab201.jsonIngestion;
+package net.jgp.books.spark.ch07.lab201_json_ngestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

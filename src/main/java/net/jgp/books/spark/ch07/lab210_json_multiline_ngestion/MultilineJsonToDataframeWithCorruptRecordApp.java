@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch07.lab210.jsonMultilineIngestion;
+package net.jgp.books.spark.ch07.lab210_json_multiline_ngestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

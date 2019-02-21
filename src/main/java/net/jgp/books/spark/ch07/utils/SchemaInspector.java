@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch07.utils;
+package net.jgp.books.spark.ch07.utils;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

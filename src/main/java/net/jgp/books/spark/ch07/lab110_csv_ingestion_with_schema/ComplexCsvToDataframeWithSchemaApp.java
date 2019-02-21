@@ -1,11 +1,11 @@
-package net.jgp.books.sparkWithJava.ch07.lab110.csvIngestionWithSchema;
+package net.jgp.books.spark.ch07.lab110_csv_ingestion_with_schema;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.types.*;
 
-import net.jgp.books.sparkWithJava.ch07.utils.SchemaInspector;
+import net.jgp.books.spark.ch07.utils.SchemaInspector;
 
 /**
  * CSV ingestion in a dataframe with a Schema.
@@ -78,7 +78,7 @@ public class ComplexCsvToDataframeWithSchemaApp {
     SchemaInspector.print("Dataframe ... ", df);
 
     // Shows at most 5 rows from the dataframe
-    df.show(5, 15);
+    df.show(5);//, 15);
     df.printSchema();
   }
 }

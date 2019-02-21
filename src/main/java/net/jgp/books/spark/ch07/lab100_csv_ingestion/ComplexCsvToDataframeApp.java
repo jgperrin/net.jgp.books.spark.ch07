@@ -1,4 +1,4 @@
-package net.jgp.books.sparkWithJava.ch07.lab100.csvIngestion;
+package net.jgp.books.spark.ch07.lab100_csv_ingestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -30,6 +30,7 @@ public class ComplexCsvToDataframeApp {
         .appName("Complex CSV to Dataframe")
         .master("local")
         .getOrCreate();
+    System.out.println("Using Apache Spark v" + spark.version());
 
     // Reads a CSV file with header, called books.csv, stores it in a dataframe
     Dataset<Row> df = spark.read().format("csv")
@@ -43,7 +44,7 @@ public class ComplexCsvToDataframeApp {
 
     System.out.println("Excerpt of the dataframe content:");
     // Shows at most 7 rows from the dataframe, with columns as wide as 90 characters
-    df.show(7, 90);
+    df.show(7);//, 90);
     System.out.println("Dataframe's schema:");
     df.printSchema();
   }

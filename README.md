@@ -4,7 +4,10 @@ The examples in this repository are support to the **[Spark in Action, 2nd editi
 
 Welcome to Spark with Java, chapter 7. This chapter covers file ingestion from CSV, JSON, XML, and text.
 
-Note: this project is still using Scala v2.11 as the related libraries are not yet available in Scala v2.12.
+Notes: 
+ 1. Due to renaming the packages to match more closely Java standards, this project is not in sync with the book's MEAP prior to v10.
+ 1. This project is still using Scala v2.11 as the related libraries are not yet available in Scala v2.12.
+ 1. As of now this application only uses Spark v2.0.2.
 
 ---
 
