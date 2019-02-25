@@ -1,14 +1,32 @@
-package net.jgp.books.spark.ch07.lab210_json_multiline_ngestion;
+package net.jgp.books.spark.ch07.lab211_corrupt_json_multiline_ngestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * Multiline ingestion JSON ingestion in a dataframe.
+ * Failing multiline ingestion JSON ingestion in a dataframe.
  * 
- * The data comes from The Bureau of Consular Affairs of the US Department of
- * State. You can access their open data portal at
+ * This example illustrates what happens when you forget the multiline
+ * option and try to ingest a multiline JSON file.
+ * 
+ * Output is:
+ * <pre>
+ * +--------------------+
+ * |     _corrupt_record|
+ * +--------------------+
+ * |                 [ {|
+ * |       "tag" : "A1",|
+ * |  "geopoliticalar...|
+ * +--------------------+
+ * only showing top 3 rows
+ * 
+ * root
+ *  |-- _corrupt_record: string (nullable = true)
+ * </pre>
+ * 
+ * The data comes from The Bureau of Consular Affairs of the US Department
+ * of State. You can access their open data portal at
  * https://cadatacatalog.state.gov/.
  * 
  * @author jgp
@@ -37,7 +55,8 @@ public class MultilineJsonToDataframeWithCorruptRecordApp {
         .master("local")
         .getOrCreate();
 
-    // Reads a JSON, called countrytravelinfo.json, stores it in a dataframe,
+    // Reads a JSON, called countrytravelinfo.json, stores it in a
+    // dataframe,
     // without specifying the multiline option
     Dataset<Row> df = spark.read().format("json")
         .load("data/countrytravelinfo.json");

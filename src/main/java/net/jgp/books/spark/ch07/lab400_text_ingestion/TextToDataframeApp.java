@@ -38,7 +38,7 @@ public class TextToDataframeApp {
     Dataset<Row> df = spark.read().format("text")
         .load("data/romeo-juliet-pg1777.txt");
 
-    // Shows at most 5 rows from the dataframe
+    // Shows at most 10 rows from the dataframe
     df.show(10);
     df.printSchema();
   }
