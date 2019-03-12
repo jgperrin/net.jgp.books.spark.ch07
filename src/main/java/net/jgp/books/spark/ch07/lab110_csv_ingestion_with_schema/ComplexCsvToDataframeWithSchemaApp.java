@@ -78,7 +78,7 @@ public class ComplexCsvToDataframeWithSchemaApp {
     SchemaInspector.print("Dataframe ... ", df);
 
     // Shows at most 5 rows from the dataframe
-    df.show(5);//, 15);
+    df.show(5, false);//, 25);
     df.printSchema();
   }
 }
