@@ -3,7 +3,10 @@ package net.jgp.books.spark.ch07.lab110_csv_ingestion_with_schema;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
-import org.apache.spark.sql.types.*;
+import org.apache.spark.sql.types.DataTypes;
+import org.apache.spark.sql.types.DecimalType$;
+import org.apache.spark.sql.types.StructField;
+import org.apache.spark.sql.types.StructType;
 
 import net.jgp.books.spark.ch07.utils.SchemaInspector;
 
@@ -63,7 +66,8 @@ public class ComplexCsvToDataframeWithSchemaApp {
     // GitHub version only: dumps the schema
     SchemaInspector.print(schema);
 
-    // Reads a CSV file with header, called books.csv, stores it in a dataframe
+    // Reads a CSV file with header, called books.csv, stores it in a
+    // dataframe
     Dataset<Row> df = spark.read().format("csv")
         .option("header", "true")
         .option("multiline", true)
@@ -78,7 +82,7 @@ public class ComplexCsvToDataframeWithSchemaApp {
     SchemaInspector.print("Dataframe ... ", df);
 
     // Shows at most 5 rows from the dataframe
-    df.show(5, false);//, 25);
+    df.show(5, false);// , 25);
     df.printSchema();
   }
 }

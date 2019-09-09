@@ -7,8 +7,8 @@ import org.apache.spark.sql.SparkSession;
 /**
  * XML ingestion to a dataframe.
  * 
- * Source of file:
- * NASA patents dataset - https://data.nasa.gov/Raw-Data/NASA-Patents/gquh-watm
+ * Source of file: NASA patents dataset -
+ * https://data.nasa.gov/Raw-Data/NASA-Patents/gquh-watm
  * 
  * @author jgp
  */
@@ -34,7 +34,8 @@ public class XmlToDataframeApp {
         .master("local")
         .getOrCreate();
 
-    // Reads a CSV file with header, called books.csv, stores it in a dataframe
+    // Reads a CSV file with header, called books.csv, stores it in a
+    // dataframe
     Dataset<Row> df = spark.read().format("xml")
         .option("rowTag", "row")
         .load("data/nasa-patents.xml");

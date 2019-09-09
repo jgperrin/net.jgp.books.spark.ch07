@@ -1,17 +1,17 @@
 package net.jgp.books.spark.ch07.lab201_json_ngestion;
 
+import static org.apache.spark.sql.functions.col;
+
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
-import static org.apache.spark.sql.functions.*;
-
 /**
  * JSON Lines ingestion in a dataframe.
  * 
- * Note: This example is an extra, which is not described in chapter 7 of the
- * book: it illustrates how to access nested structure in the JSON document
- * directly. Linearization will be covered in chapter 12.
+ * Note: This example is an extra, which is not described in chapter 7 of
+ * the book: it illustrates how to access nested structure in the JSON
+ * document directly. Linearization will be covered in chapter 12.
  * 
  * For more details about the JSON Lines format, see: http://jsonlines.org/.
  * 
@@ -40,7 +40,8 @@ public class JsonLinesToDataframeWithLinearizationApp {
         .master("local")
         .getOrCreate();
 
-    // Reads a CSV file with header, called books.csv, stores it in a dataframe
+    // Reads a CSV file with header, called books.csv, stores it in a
+    // dataframe
     Dataset<Row> df = spark.read().format("json")
         .load("data/durham-nc-foreclosure-2006-2016.json");
 

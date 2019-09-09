@@ -7,8 +7,8 @@ import org.apache.spark.sql.SparkSession;
 /**
  * Text ingestion in a dataframe.
  * 
- * Source of file:
- * Rome & Juliet (Shakespeare) - http://www.gutenberg.org/cache/epub/1777/pg1777.txt
+ * Source of file: Rome & Juliet (Shakespeare) -
+ * http://www.gutenberg.org/cache/epub/1777/pg1777.txt
  * 
  * @author jgp
  */

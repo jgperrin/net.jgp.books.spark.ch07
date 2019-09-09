@@ -34,12 +34,13 @@ public class JsonLinesToDataframeApp {
         .master("local")
         .getOrCreate();
 
-    // Reads a CSV file with header, called books.csv, stores it in a dataframe
+    // Reads a CSV file with header, called books.csv, stores it in a
+    // dataframe
     Dataset<Row> df = spark.read().format("json")
         .load("data/durham-nc-foreclosure-2006-2016.json");
 
     // Shows at most 5 rows from the dataframe
-    df.show(5);//, 13);
+    df.show(5);// , 13);
     df.printSchema();
   }
 }

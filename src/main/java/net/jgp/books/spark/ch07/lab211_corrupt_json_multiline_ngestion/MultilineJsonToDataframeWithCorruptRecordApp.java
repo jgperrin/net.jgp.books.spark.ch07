@@ -11,6 +11,7 @@ import org.apache.spark.sql.SparkSession;
  * option and try to ingest a multiline JSON file.
  * 
  * Output is:
+ * 
  * <pre>
  * +--------------------+
  * |     _corrupt_record|

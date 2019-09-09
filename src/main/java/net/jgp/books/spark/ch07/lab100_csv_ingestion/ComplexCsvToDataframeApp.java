@@ -32,7 +32,8 @@ public class ComplexCsvToDataframeApp {
         .getOrCreate();
     System.out.println("Using Apache Spark v" + spark.version());
 
-    // Reads a CSV file with header, called books.csv, stores it in a dataframe
+    // Reads a CSV file with header, called books.csv, stores it in a
+    // dataframe
     Dataset<Row> df = spark.read().format("csv")
         .option("header", "true")
         .option("multiline", true)
@@ -43,8 +44,9 @@ public class ComplexCsvToDataframeApp {
         .load("data/books.csv");
 
     System.out.println("Excerpt of the dataframe content:");
-    // Shows at most 7 rows from the dataframe, with columns as wide as 90 characters
-    df.show(7);//, 90);
+    // Shows at most 7 rows from the dataframe, with columns as wide as 90
+    // characters
+    df.show(7);// , 90);
     System.out.println("Dataframe's schema:");
     df.printSchema();
   }
