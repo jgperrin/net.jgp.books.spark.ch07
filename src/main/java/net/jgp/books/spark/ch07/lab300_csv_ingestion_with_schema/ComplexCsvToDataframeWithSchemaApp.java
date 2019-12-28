@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch07.lab110_csv_ingestion_with_schema;
+package net.jgp.books.spark.ch07.lab300_csv_ingestion_with_schema;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;

@@ -1,18 +1,17 @@
-package net.jgp.books.spark.ch07.lab300_xml_ingestion;
+package net.jgp.books.spark.ch07.lab400_json_ingestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * XML ingestion to a dataframe.
+ * JSON Lines ingestion in a dataframe.
  * 
- * Source of file: NASA patents dataset -
- * https://data.nasa.gov/Raw-Data/NASA-Patents/gquh-watm
+ * For more details about the JSON Lines format, see: http://jsonlines.org/.
  * 
  * @author jgp
  */
-public class XmlToDataframeApp {
+public class JsonLinesToDataframeApp {
 
   /**
    * main() is your entry point to the application.
@@ -20,28 +19,28 @@ public class XmlToDataframeApp {
    * @param args
    */
   public static void main(String[] args) {
-    XmlToDataframeApp app = new XmlToDataframeApp();
+    JsonLinesToDataframeApp app =
+        new JsonLinesToDataframeApp();
     app.start();
   }
 
   /**
-   * The processing code.//#C
+   * The processing code.
    */
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("XML to Dataframe")
+        .appName("JSON Lines to Dataframe")
         .master("local")
         .getOrCreate();
 
     // Reads a CSV file with header, called books.csv, stores it in a
     // dataframe
-    Dataset<Row> df = spark.read().format("xml")
-        .option("rowTag", "row")
-        .load("data/nasa-patents.xml");
+    Dataset<Row> df = spark.read().format("json")
+        .load("data/durham-nc-foreclosure-2006-2016.json");
 
     // Shows at most 5 rows from the dataframe
-    df.show(5);
+    df.show(5);// , 13);
     df.printSchema();
   }
 }

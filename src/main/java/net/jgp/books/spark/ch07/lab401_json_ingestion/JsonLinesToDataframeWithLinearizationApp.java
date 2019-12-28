@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch07.lab201_json_ngestion;
+package net.jgp.books.spark.ch07.lab401_json_ingestion;
 
 import static org.apache.spark.sql.functions.col;
 

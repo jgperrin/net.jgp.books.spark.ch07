@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch07.lab100_csv_ingestion;
+package net.jgp.books.spark.ch07.lab200_csv_ingestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -39,14 +39,14 @@ public class ComplexCsvToDataframeApp {
         .option("multiline", true)
         .option("sep", ";")
         .option("quote", "*")
-        .option("dateFormat", "M/d/y")
+        .option("dateFormat", "MM/dd/yyyy")
         .option("inferSchema", true)
         .load("data/books.csv");
 
     System.out.println("Excerpt of the dataframe content:");
     // Shows at most 7 rows from the dataframe, with columns as wide as 90
     // characters
-    df.show(7);// , 90);
+    df.show(7, 70);
     System.out.println("Dataframe's schema:");
     df.printSchema();
   }

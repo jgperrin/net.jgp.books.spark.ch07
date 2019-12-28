@@ -1,18 +1,18 @@
-package net.jgp.books.spark.ch07.lab500_avro_ingestion;
+package net.jgp.books.spark.ch07.lab920_parquet_ingestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
 /**
- * Avro ingestion in a dataframe.
+ * Parquet ingestion in a dataframe.
  * 
- * Source of file: Apache Avro project -
- * https://github.com/apache/orc/tree/master/examples
+ * Source of file: Apache Parquet project -
+ * https://github.com/apache/parquet-testing
  * 
  * @author jgp
  */
-public class AvroToDataframeApp {
+public class ParquetToDataframeApp {
 
   /**
    * main() is your entry point to the application.
@@ -20,7 +20,7 @@ public class AvroToDataframeApp {
    * @param args
    */
   public static void main(String[] args) {
-    AvroToDataframeApp app = new AvroToDataframeApp();
+    ParquetToDataframeApp app = new ParquetToDataframeApp();
     app.start();
   }
 
@@ -30,19 +30,18 @@ public class AvroToDataframeApp {
   private void start() {
     // Creates a session on a local master
     SparkSession spark = SparkSession.builder()
-        .appName("Avro to Dataframe")
+        .appName("Parquet to Dataframe")
         .master("local")
         .getOrCreate();
 
-    // Reads an Avro file, stores it in a dataframe
+    // Reads a Parquet file, stores it in a dataframe
     Dataset<Row> df = spark.read()
-        .format("com.databricks.spark.avro")
-        .load("data/weather.avro");
+        .format("parquet")
+        .load("data/alltypes_plain.parquet");
 
     // Shows at most 10 rows from the dataframe
     df.show(10);
     df.printSchema();
-    System.out.println("The dataframe has " + df.count()
-        + " rows.");
+    System.out.println("The dataframe has " + df.count() + " rows.");
   }
 }
