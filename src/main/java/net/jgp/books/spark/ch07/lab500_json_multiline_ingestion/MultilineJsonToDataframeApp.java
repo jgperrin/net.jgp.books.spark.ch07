@@ -7,9 +7,6 @@ import org.apache.spark.sql.SparkSession;
 /**
  * Multiline ingestion JSON ingestion in a dataframe.
  * 
- * The data comes from the city of Durham, NC. You can freely download their
- * datasets from their portal at https://OpenDurham.nc.gov. .
- * 
  * @author jgp
  */
 public class MultilineJsonToDataframeApp {

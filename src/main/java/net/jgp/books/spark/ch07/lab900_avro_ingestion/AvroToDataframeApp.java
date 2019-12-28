@@ -36,7 +36,7 @@ public class AvroToDataframeApp {
 
     // Reads an Avro file, stores it in a dataframe
     Dataset<Row> df = spark.read()
-        .format("com.databricks.spark.avro")
+        .format("avro")
         .load("data/weather.avro");
 
     // Shows at most 10 rows from the dataframe

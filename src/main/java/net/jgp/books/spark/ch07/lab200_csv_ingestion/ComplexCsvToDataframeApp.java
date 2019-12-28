@@ -44,6 +44,7 @@ public class ComplexCsvToDataframeApp {
         .load("data/books.csv");
 
     System.out.println("Excerpt of the dataframe content:");
+
     // Shows at most 7 rows from the dataframe, with columns as wide as 90
     // characters
     df.show(7, 70);
