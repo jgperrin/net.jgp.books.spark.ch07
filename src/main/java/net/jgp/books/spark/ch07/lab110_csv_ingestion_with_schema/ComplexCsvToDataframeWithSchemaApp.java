@@ -72,7 +72,7 @@ public class ComplexCsvToDataframeWithSchemaApp {
         .option("header", "true")
         .option("multiline", true)
         .option("sep", ";")
-        .option("dateFormat", "M/d/y")
+        .option("dateFormat", "MM/dd/yyyy")
         .option("quote", "*")
         .schema(schema)
         .load("data/books.csv");
@@ -81,8 +81,8 @@ public class ComplexCsvToDataframeWithSchemaApp {
     SchemaInspector.print("Schema ...... ", schema);
     SchemaInspector.print("Dataframe ... ", df);
 
-    // Shows at most 5 rows from the dataframe
-    df.show(5, false);// , 25);
+    // Shows at most 20 rows from the dataframe
+    df.show(30, 25, false);
     df.printSchema();
   }
 }

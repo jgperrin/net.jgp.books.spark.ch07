@@ -14,7 +14,6 @@
     <scala.version>2.12</scala.version>
     <spark.version>3.0.0-preview2</spark.version>
     <spark-xml.version>0.7.0</spark-xml.version>
-    <spark-avro.version>4.0.0</spark-avro.version>
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
   </properties>
 
