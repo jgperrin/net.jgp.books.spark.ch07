@@ -1,4 +1,4 @@
-package net.jgp.books.spark.ch07.lab900_avro_ingestion;
+package net.jgp.books.spark.ch07.lab910_avro_ingestion;
 
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
