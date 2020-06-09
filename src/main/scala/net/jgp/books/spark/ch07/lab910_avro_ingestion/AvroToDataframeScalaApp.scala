@@ -25,6 +25,7 @@ object AvroToDataframeScalaApp {
     // Creates a session on a local master
     val spark: SparkSession = SparkSession.builder
       .appName("Avro to Dataframe")
+      //.config("spark.jars.packages", "org.apache.spark:spark-avro_2.12:2.4.5")
       .master("local[*]")
       .getOrCreate
 

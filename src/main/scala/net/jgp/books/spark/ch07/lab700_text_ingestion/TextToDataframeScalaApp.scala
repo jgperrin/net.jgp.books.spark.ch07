@@ -1,6 +1,6 @@
 package net.jgp.books.spark.ch07.lab700_text_ingestion
 
-import org.apache.spark.sql.{Dataset, Row, SparkSession}
+import org.apache.spark.sql.SparkSession
 
 /**
  * Text ingestion in a dataframe.

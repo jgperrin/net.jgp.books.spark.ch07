@@ -31,7 +31,7 @@ object XmlToDataframeScalaApp {
     // Reads a CSV file with header, called books.csv, stores it in a
     // dataframe
     val df = spark.read
-      .format("xml")
+      .format("com.databricks.spark.xml")
       .option("rowTag", "row")
       .load("data/nasa-patents.xml")
 

@@ -54,7 +54,7 @@ You will need:
 
     git clone https://github.com/jgperrin/net.jgp.books.spark.ch07
 
-2. cd net.jgp.books.spark.ch04
+2. cd net.jgp.books.spark.ch07
 
 3. Package application using sbt command
 

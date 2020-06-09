@@ -26,8 +26,11 @@ hs_err_pid*
 /.settings/
 /bin/
 *.DS_Store
-.idea/*
+.idea
 *.iml
 target/*
 project/target/*
 project/project/*
+target/*.*
+/.cache-main
+/project/

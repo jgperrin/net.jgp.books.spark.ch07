@@ -15,7 +15,9 @@ absolute_file_path = os.path.join(current_dir, relative_path)
 
 # Creates a session on a local master
 spark = SparkSession.builder.appName("XML to Dataframe") \
-    .master("local[*]").getOrCreate()
+    .master("local[*]") \
+    .config("spark.jars.packages", "com.databricks:spark-xml_2.12:0.9.0") \
+    .getOrCreate()
 
 # Reads a CSV file with header, called books.csv, stores it in a
 # dataframe

@@ -6,24 +6,33 @@
 
  @author rambabu.posa
 """
-from pyspark.sql import SparkSession
 import os
+from pyspark.sql import SparkSession
 
-current_dir = os.path.dirname(__file__)
-relative_path = "../../../../data/weather.avro"
-absolute_file_path = os.path.join(current_dir, relative_path)
+def get_absolute_file_path(path, filename):
+    current_dir = os.path.dirname(__file__)
+    relative_path = "{}{}".format(path, filename)
+    absolute_file_path = os.path.join(current_dir, relative_path)
+    return absolute_file_path
 
-# Creates a session on a local master
-spark = SparkSession.builder.appName("Avro to Dataframe") \
-    .master("local[*]").getOrCreate()
+def main(spark):
+    path = "../../../../data/"
+    filename = "weather.avro"
+    absolute_file_path = get_absolute_file_path(path, filename)
+    # Reads an Avro file, stores it in a dataframe
+    df = spark.read.format("avro") \
+              .load(absolute_file_path)
 
-# Reads an Avro file, stores it in a dataframe
-df = spark.read.format("avro") \
-          .load("data/weather.avro")
+    # Shows at most 10 rows from the dataframe
+    df.show(10)
+    df.printSchema()
+    print("The dataframe has {} rows.".format(df.count()))
 
-# Shows at most 10 rows from the dataframe
-df.show(10)
-df.printSchema()
-print("The dataframe has {} rows.".format(df.count()))
 
-spark.stop()
+if __name__ == "__main__":
+
+    # Creates a session on a local master
+    spark = SparkSession.builder.appName("Avro to Dataframe") \
+        .master("local[*]").getOrCreate()
+    main(spark)
+    spark.stop()
