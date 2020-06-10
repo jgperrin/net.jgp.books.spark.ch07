@@ -1,0 +1,2 @@
+py4j.protocol.Py4JJavaError: An error occurred while calling o34.load.
+: java.lang.ClassNotFoundException: Failed to find data source: xml. Please find packages at http://spark.apache.org/third-party-projects.html
