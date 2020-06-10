@@ -11,10 +11,9 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
-    <scala.version>2.11</scala.version>
-    <spark.version>2.0.2</spark.version>
-    <spark-xml.version>0.4.1</spark-xml.version>
-    <spark-avro.version>4.0.0</spark-avro.version>
+    <scala.version>2.12</scala.version>
+    <spark.version>3.0.0-preview2</spark.version>
+    <spark-xml.version>0.7.0</spark-xml.version>
     <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
   </properties>
 
@@ -51,9 +50,9 @@
     </dependency>
 
     <dependency>
-      <groupId>com.databricks</groupId>
+      <groupId>org.apache.spark</groupId>
       <artifactId>spark-avro_${scala.version}</artifactId>
-      <version>${spark-avro.version}</version>
+      <version>${spark.version}</version>
     </dependency>
 
     <dependency>

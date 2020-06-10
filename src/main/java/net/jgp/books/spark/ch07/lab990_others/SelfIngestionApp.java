@@ -45,20 +45,22 @@ public class SelfIngestionApp {
     df.show(false);
 
     // map and reduce with getAs()
-    int totalLines = df
-        .map(
-            (MapFunction<Row, Integer>) row -> row.<Integer>getAs("i"),
-            Encoders.INT())
-        .reduce((a, b) -> a + b);
-    System.out.println(totalLines);
+    // The following code does not work (yet) with Spark 3.0.0 (preview 1)
+    // int totalLines = df
+    // .map(
+    // (MapFunction<Row, Integer>) row -> row.<Integer>getAs("i"),
+    // Encoders.INT())
+    // .reduce((a, b) -> a + b);
+    // System.out.println(totalLines);
 
     // map and reduce with getInt()
-    totalLines = df
-        .map(
-            (MapFunction<Row, Integer>) row -> row.getInt(0),
-            Encoders.INT())
-        .reduce((a, b) -> a + b);
-    System.out.println(totalLines);
+    // The following code does not work (yet) with Spark 3.0.0 (preview 1)
+    // totalLines = df
+    // .map(
+    // (MapFunction<Row, Integer>) row -> row.getInt(0),
+    // Encoders.INT())
+    // .reduce((a, b) -> a + b);
+    // System.out.println(totalLines);
 
     // SQL-like
     long totalLinesL = df.selectExpr("sum(*)").first().getLong(0);
