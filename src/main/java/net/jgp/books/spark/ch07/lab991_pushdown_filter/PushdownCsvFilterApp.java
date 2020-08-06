@@ -25,7 +25,6 @@ public class PushdownCsvFilterApp {
     PushdownCsvFilterApp app = new PushdownCsvFilterApp();
     //app.buildBigCsvFile();
     // app.start(Mode.NO_FILTER);
-
     app.start(Mode.FILTER);
   }
 
@@ -78,7 +77,7 @@ public class PushdownCsvFilterApp {
             .master("local[*]")
             .getOrCreate();
         System.out.println("Using Apache Spark v" + spark.version());
-        df = ingestionWithoutFilter(spark, "all-games");
+        df = ingestionWithoutFilter(spark);
         break;
 
       case FILTER:
@@ -88,11 +87,11 @@ public class PushdownCsvFilterApp {
             .master("local[*]")
             .getOrCreate();
         System.out.println("Using Apache Spark v" + spark.version());
-        df = ingestionWithFilter(spark, "pushdown-filter");
+        df = ingestionWithFilter(spark);
         break;
     }
 
-    df.explain(true);// "formatted");
+    df.explain("formatted");
     df.write().format("parquet").mode(SaveMode.Overwrite)
         .save("/tmp/vgasales/" + filter);
     long t1 = System.currentTimeMillis();
@@ -101,8 +100,7 @@ public class PushdownCsvFilterApp {
         .println("Operation " + filter + " tool " + (t1 - t0) + " ms.");
   }
 
-  private Dataset<Row> ingestionWithFilter(SparkSession spark,
-      String string) {
+  private Dataset<Row> ingestionWithFilter(SparkSession spark) {
     Dataset<Row> df = spark.read().format("csv")
         .option("header", true)
         .option("inferSchema", true)
@@ -111,8 +109,7 @@ public class PushdownCsvFilterApp {
     return df;
   }
 
-  private Dataset<Row> ingestionWithoutFilter(SparkSession spark,
-      String string) {
+  private Dataset<Row> ingestionWithoutFilter(SparkSession spark) {
     Dataset<Row> df = spark.read().format("csv")
         .option("header", true)
         .option("inferSchema", true)
