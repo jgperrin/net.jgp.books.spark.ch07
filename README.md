@@ -1,4 +1,4 @@
-The examples in this repository are support to the **[Spark in Action, 2nd edition](http://jgp.net/sia)** book by Jean Georges Perrin and published by Manning. Find out more about the book on [Manning's website](http://jgp.ai/sia).
+The examples in this repository are support to the **[Spark in Action, 2nd edition](http://jgp.net/sia)** book by Jean-Georges Perrin and published by Manning. Find out more about the book on [Manning's website](http://jgp.ai/sia).
 
 # Spark in Action, 2nd edition - chapter 7
 
@@ -86,7 +86,7 @@ You will need:
  * `git`.
  * Apache Spark (please refer Appendix P - "Spark in production: installation and a few tips").
 
-Step by step direction for lab \#200. Follow similar steps for the other labs.
+Step by step direction for lab \#200. You will need to adapt some steps for the other labs.
 
 1. Clone this project
 
@@ -106,7 +106,7 @@ You will need:
  * `git`.
  * Apache Spark (please refer Appendix P - "Spark in production: installation and a few tips"). 
 
-Step by step direction for lab \#200. Follow similar steps for the other labs.
+Step by step direction for lab \#200. You will need to adapt some steps for the other labs.
 
 1. Clone this project
 
