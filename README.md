@@ -2,11 +2,11 @@ The examples in this repository are support to the **[Spark in Action, 2nd editi
 
 # Spark in Action, 2nd edition - chapter 7
 
-Welcome to Spark with Java, chapter 7. This chapter covers file **ingestion from CSV, JSON, XML, text, and more**.
+Welcome to Spark in Action, 2nd edition, chapter 7. This chapter covers file **ingestion from CSV, JSON, XML, text, and more**.
 
 ## Labs
 
-Each chapter has one or more labs. Labs are examples used for teaching in the book(https://www.manning.com/books/spark-in-action-second-edition?a_aid=jgp). You are encouraged to take ownership of the code and modify it, experiment with it, hence the use of the term **lab**.
+Each chapter has one or more labs. Labs are examples used for teaching in the [book](https://www.manning.com/books/spark-in-action-second-edition?a_aid=jgp). You are encouraged to take ownership of the code and modify it, experiment with it, hence the use of the term **lab**.
 
 This code is designed to work with Apache Spark v3.0.0.
 
@@ -124,10 +124,11 @@ Step by step direction for lab \#200. You will need to adapt some steps for the 
 
     spark-submit --class net.jgp.books.spark.ch07.lab200_csv_ingestion.ComplexCsvToDataframeScalaApp target/scala-2.12/SparkInAction2-Chapter07-assembly-1.0.0.jar
 
-Notes: 
+## Notes
+
  1. [Java] Due to renaming the packages to match more closely Java standards, this project is not in sync with the book's MEAP prior to v10 (published in April 2019).
- 2. [Scala, Python] As of MEAP v14, we have introduced Scala and Python examples (published in October 2019).
- 3. Erratas and additional examples are added and the labs may slightly differ from the once in the book (update in July 2020).
+ 1. [Scala, Python] As of MEAP v14, we have introduced Scala and Python examples (published in October 2019).
+ 1. Erratas and additional examples are added and the labs may slightly differ from the once in the book (update in July 2020).
  
 ---
 
