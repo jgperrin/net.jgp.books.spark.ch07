@@ -8,15 +8,15 @@ Welcome to Spark in Action, 2nd edition, chapter 7. This chapter covers file **i
 
 Each chapter has one or more labs. Labs are examples used for teaching in the [book](https://www.manning.com/books/spark-in-action-second-edition?a_aid=jgp). You are encouraged to take ownership of the code and modify it, experiment with it, hence the use of the term **lab**.
 
-This code is designed to work with Apache Spark v3.0.0.
+This code is designed to work with Apache Spark v3.1.2.
 
 ### Lab \#200
 
 The `ComplexCsvToDataframeApp` application does the following:
 
-1.	It acquires a session (a `SparkSession`).
-2.	It asks Spark to load (ingest) a dataset in CSV format.
-3.	It demonstrates how to add input options for the underlying data source.
+ 1. It acquires a session (a `SparkSession`).
+ 1. It asks Spark to load (ingest) a dataset in CSV format.
+ 1. It demonstrates how to add input options for the underlying data source.
 
 ### Lab \#201
 
@@ -46,7 +46,7 @@ TBD
 
 ### Lab \#600
 
-TBD
+The `XmlToDataframeApp` application reads an XML file and displays its content and schema. Updated to use Spark-XML v0.12.0.
 
 ### Lab \#700
 
@@ -124,12 +124,18 @@ Step by step direction for lab \#200. You will need to adapt some steps for the 
 
     spark-submit --class net.jgp.books.spark.ch07.lab200_csv_ingestion.ComplexCsvToDataframeScalaApp target/scala-2.12/SparkInAction2-Chapter07-assembly-1.0.0.jar
 
+## News
+
+ 1. [2020-06-07] Updated the pom.xml to support Apache Spark v3.1.2. 
+ 1. [2020-06-07] As we celebrate the first anniversary of Spark in Action, 2nd edition is the best-rated Apache Spark book on [Amazon](https://amzn.to/2TPnmOv). 
+
 ## Notes
 
  1. [Java] Due to renaming the packages to match more closely Java standards, this project is not in sync with the book's MEAP prior to v10 (published in April 2019).
  1. [Scala, Python] As of MEAP v14, we have introduced Scala and Python examples (published in October 2019).
  1. Erratas and additional examples are added and the labs may slightly differ from the once in the book (update in July 2020).
- 
+ 1. The master branch contains the last version of the code running against the latest supported version of Apache Spark. Look in specifics branches for specific versions.
+  
 ---
 
 Follow me on Twitter to get updates about the book and Apache Spark: [@jgperrin](https://twitter.com/jgperrin). Join the book's community on [Facebook](https://www.facebook.com/SparkInAction/) or in [Manning's Live Book site](https://livebook.manning.com/book/spark-in-action-second-edition/about-this-book/?a_aid=jgp).
