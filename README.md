@@ -4,11 +4,11 @@ The examples in this repository are support to the **[Spark in Action, 2nd editi
 
 Welcome to Spark in Action, 2nd edition, chapter 7. This chapter covers file **ingestion from CSV, JSON, XML, text, and more**.
 
+This code is designed to work with Apache Spark v3.1.2.
+
 ## Labs
 
 Each chapter has one or more labs. Labs are examples used for teaching in the [book](https://www.manning.com/books/spark-in-action-second-edition?a_aid=jgp). You are encouraged to take ownership of the code and modify it, experiment with it, hence the use of the term **lab**.
-
-This code is designed to work with Apache Spark v3.1.2.
 
 ### Lab \#200
 
